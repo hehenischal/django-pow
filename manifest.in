@@ -1,0 +1,6 @@
+include LICENSE
+include README.md
+recursive-include django_pow/static *
+recursive-include django_pow/templates *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
