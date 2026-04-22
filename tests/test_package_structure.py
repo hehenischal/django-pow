@@ -24,7 +24,16 @@ class PackageStructureTests(unittest.TestCase):
 
     def test_dummy_data_fixture_shape(self):
         fixture_path = REPO_ROOT / "django_pow" / "fixtures" / "dummy_data.json"
-        fixture_data = json.loads(fixture_path.read_text(encoding="utf-8"))
+
+        try:
+            fixture_text = fixture_path.read_text(encoding="utf-8")
+        except FileNotFoundError as exc:
+            self.fail(f"Fixture file is missing: {fixture_path} ({exc})")
+
+        try:
+            fixture_data = json.loads(fixture_text)
+        except json.JSONDecodeError as exc:
+            self.fail(f"Fixture file contains invalid JSON: {exc}")
 
         self.assertIsInstance(fixture_data, list)
         self.assertGreaterEqual(len(fixture_data), 2)
