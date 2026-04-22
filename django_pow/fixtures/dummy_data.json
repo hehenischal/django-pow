@@ -1,0 +1,18 @@
+[
+  {
+    "model": "django_pow.dummyitem",
+    "pk": 1,
+    "fields": {
+      "name": "Sample Item A",
+      "is_active": true
+    }
+  },
+  {
+    "model": "django_pow.dummyitem",
+    "pk": 2,
+    "fields": {
+      "name": "Sample Item B",
+      "is_active": false
+    }
+  }
+]
